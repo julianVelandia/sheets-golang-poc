@@ -92,7 +92,7 @@ func main() {
 
 	// Prints the names and majors of students in a sample spreadsheet:
 	spreadsheetId := "1y8rAuDeYfcT7jx6O1KbC_DwO68SeWeoXkeUdYVMCV_0"
-	readRange := "TAGS!A1:w100"
+	readRange := "ingenieria!A3:A500"
 
 
 	resp, err := srv.Spreadsheets.Values.Get(spreadsheetId, readRange).Do()
@@ -103,10 +103,13 @@ func main() {
 	if len(resp.Values) == 0 {
 		fmt.Println("No data found.")
 	} else {
-		fmt.Println("Name, Major:")
+		fmt.Println(resp.Values)
+		/*
 		for _, row := range resp.Values {
 			// Print columns A and E, which correspond to indices 0 and 4.
-			fmt.Printf("%s, %s\n", row[0], row[4])
+			fmt.Printf("%s, %s\n", row[0], row[3])
 		}
+
+		 */
 	}
 }
