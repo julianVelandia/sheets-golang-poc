@@ -73,7 +73,7 @@ func saveToken(path string, token *oauth2.Token) {
 
 func main() {
 	ctx := context.Background()
-	b, err := ioutil.ReadFile("credentials.json")
+	b, err := ioutil.ReadFile("c/credentials.json")
 	if err != nil {
 		log.Fatalf("Unable to read client secret file: %v", err)
 	}
@@ -103,13 +103,16 @@ func main() {
 	if len(resp.Values) == 0 {
 		fmt.Println("No data found.")
 	} else {
-		fmt.Println(resp.Values)
-		/*
+
+
+
 		for _, row := range resp.Values {
 			// Print columns A and E, which correspond to indices 0 and 4.
-			fmt.Printf("%s, %s\n", row[0], row[3])
+			for _, col := range row {
+				fmt.Println(col)
+			}
 		}
 
-		 */
+
 	}
 }
